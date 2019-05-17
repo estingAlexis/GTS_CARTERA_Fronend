@@ -1,0 +1,48 @@
+<header id="header" class="animated fadeInDown">
+
+  <div id="logo-group">
+    <span id="logo"> <img src="assets/img/pos/logo.png" alt="SmartAdmin"> </span>
+  </div>
+  
+</header>
+<div id="main" role="main" class="animated fadeInDown">
+
+  <div id="content" class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
+        <img src="https://image.flaticon.com/icons/svg/891/891401.svg" class="center-block" alt="" style="width:315px;max-width: 575px;">
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+        <div class="well no-padding">
+          <form class="smart-form client-form">
+            <header>
+              INICIO DE SESION
+            </header>
+            <fieldset>
+              <section>
+                <label class="label">USUARIO</label>
+                <label class="input"> <i class="icon-append fa fa-user"></i>
+                  <input type="USERNAME" name="USERNAME" placeholder="Nombre de usuario">
+                </label>
+              </section>
+              <section>
+                <label class="label">CONTRASEÑA</label>
+                <label class="input"> <i class="icon-append fa fa-lock"></i>
+                  <input type="password" name="password" placeholder="*****">
+                </label>
+                <div class="note">
+                  <a routerLink="/auth/forgot-password">Olvide mi contraseña</a>
+                </div>
+              </section>
+            </fieldset>
+            <footer>
+              <button routerLink="/admin/home" class="btn btn-primary">
+                Ingresar
+              </button>
+            </footer>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

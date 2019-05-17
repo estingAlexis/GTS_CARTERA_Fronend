@@ -1,0 +1,50 @@
+<sa-widgets-grid>
+  <div sa-widget color="blueDark">
+    <header>
+      <span class="widget-icon"> <i class="fa fa-plus"></i> </span>
+      <h2 *ngIf="c_accion == 1">Agregar departamento</h2>
+      <h2 *ngIf="c_accion == 2">Editar departamento</h2>
+    </header>
+    
+      <div class="widget-body">
+        <form #departamentoForm="ngForm">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group form-group-sm">
+                <label for="id">CODIGO <span class="required">*</span></label>
+                <input type="text" class="form-control input-sm" name="codigo" codigo="codigo" required [(ngModel)]="formData.codigo" #codigo="ngModel" placeholder="CODIGO">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group form-group-sm">
+                <label for="nombre">Nombre <span class="required">*</span></label>
+                <input type="text" class="form-control input-sm" name="nombre" id="nombre" required
+                  [(ngModel)]="formData.nombre" #nombre="ngModel" placeholder="Nombre">
+              </div>
+            </div>
+          </div>
+          <div class="pull-right">
+            <button type="button" *ngIf="c_accion==1" class="btn btn-secondary" data-dismiss="modal"
+              (click)="departamentoForm.reset()">Cancelar
+            </button>
+            <button type="button" *ngIf="c_accion==2 && formData.estado == 1" class="btn btn-danger" data-dismiss="modal"
+              (click)="desactivar()">Desactivar
+            </button>
+            <button type="button" *ngIf="c_accion==2 && formData.estado == 0" class="btn btn-warning" data-dismiss="modal"
+              (click)="reactivar()">Reactivar
+            </button>
+            <button type="button" class="btn btn-success" *ngIf="c_accion==1" [disabled]="!departamentoForm.valid"
+              (click)="guardar(departamentoForm,departamentoForm);">
+              <i class="fa fa-save"></i> Guardar departamento
+            </button>
+            <button type="button" class="btn btn-primary" *ngIf="c_accion==2" [disabled]="!departamentoForm.valid"
+              (click)="editar(departamentoForm,departamentoForm);">
+              <i class="fa fa-save"></i> Editar departamento
+            </button>
+            
+          </div >
+        </form>
+      </div>
+      
+  </div>
+</sa-widgets-grid>

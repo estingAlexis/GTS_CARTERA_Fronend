@@ -1,0 +1,259 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* #GOOGLE FONT */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700");
+@import "~ng-snotify/styles/dark";
+/* @import "~ng-snotify/styles/material"; */
+@import "~ngx-smart-modal/ngx-smart-modal";
+
+
+
+select.btn.btn-default,
+select.btn.btn-default:hover,
+select.btn.btn-default:active,
+select.btn.btn-default:focus {
+  background: white !important;
+  background-color: white !important;
+}
+
+.modal-title {
+  font-weight: bold !important;
+}
+
+.codigo {
+  font-weight: bold !important;
+  text-align: right !important;
+}
+
+label > span {
+  color: red !important;
+}
+
+.nsm-dialog {
+  max-width: 100%;
+}
+
+.nsm-overlay-open {
+  z-index: 10001 !important;
+}
+
+.nsm-content {
+  padding: 0px;
+}
+
+.mr3 {
+  margin: 3px;
+}
+
+.modal-smart-20 {
+  width: 20%;
+}
+
+.modal-smart-30 {
+  width: 30%;
+}
+
+.modal-smart-40 {
+  width: 40%;
+}
+
+.modal-smart-top-25 {
+  top: 25% !important;
+}
+
+.modal-smart-top-20 {
+  top: 20% !important;
+}
+
+.modal-smart-top-15 {
+  top: 15% !important;
+}
+
+.modal-smart-top-10 {
+  top: 10% !important;
+}
+
+.modal-smart-top-5 {
+  top: 5% !important;
+}
+
+.modal-smart-top-2 {
+  top: 2% !important;
+}
+
+.modal-smart-50 {
+  width: 50%;
+}
+
+.modal-smart-60 {
+  width: 60%;
+}
+
+.modal-smart-75 {
+  width: 75%;
+}
+
+.modal-smart-80 {
+  width: 90%;
+}
+
+.modal-smart-90 {
+  width: 90%;
+}
+
+.modal-smart-95 {
+  width: 95%;
+}
+
+.f-right {
+  float: right;
+}
+
+.f-left {
+  float: left;
+}
+app-root, app-main-layout, app-auth-layout, app-locked, #extr-page {
+  min-height: auto !important;
+}
+
+#main {
+  min-height: 50vh;
+}
+#ribbon{
+  /* background: #264566 !important; */
+  background: #323232 !important;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+  padding: 5px;
+}
+td.btns{
+  padding: 0px !important;
+}
+.page-footer {
+  background: #212121;
+}
+
+.jarviswidget-color-blueDark>header {
+  border-color: #323232!important;
+  background: #323232;
+  color: #fff;
+}
+span.required{
+  color: red;
+  font-weight: bold;
+}
+
+
+td .far,
+td .fab,
+td .fas {
+  margin-right: 0px !important;
+}
+
+table.dataTable thead .sorting {
+  background-image: url("assets/img/sorter/sort_both.png") !important;
+  background-position: right 10px top 6px;
+}
+
+table.dataTable thead .sorting_asc {
+  background-image: url("assets/img/sorter/sort_asc.png") !important;
+  background-position: right 10px top 6px;
+}
+
+table.dataTable thead .sorting_desc {
+  background-image: url("assets/img/sorter/sort_desc.png") !important;
+  background-position: right 10px top 6px;
+}
+
+table.dataTable thead .sorting_asc_disabled {
+  background-image: url("assets/img/sorter/sort_asc_disabled.png") !important;
+  background-position: right 10px top 6px;
+}
+
+table.dataTable thead .sorting_desc_disabled {
+  background-image: url("assets/img/sorter/sort_desc_disabled.png") !important;
+  background-position: right 10px top 6px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  min-width: 1.5em !important;
+  padding: 0.3em 1em !important;
+  background: #eee !important;
+  margin: 5px !important;
+  border: 0px !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:active {
+  box-shadow: none;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  transition: 0.2s;
+  background: #ccc !important;
+  color: black !important;
+  border: 0px solid #ccc !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover {
+  cursor: not-allowed !important;
+  color: black !important;
+  border: 0px solid transparent !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  background: #ccc !important;
+  font-weight: bold !important;
+}
+
+table.dataTable thead th,
+table.dataTable thead td {
+  padding: 5px 9px !important;
+  border-bottom: 0px solid #111 !important;
+}
+.snotify-icon {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-position: center;
+}
+.dataTables_wrapper .dataTables_filter {
+  float: right;
+}
+.dataTables_wrapper .dataTables_filter input {
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.dataTables_filter{
+  width: inherit !important;
+}
+
+#logo-group>span{
+  margin: 5px;
+}
+#logo img{
+  width: 80px;
+}
+
+#extr-page #header #logo {
+  margin: 10px;
+}
+#extr-page #header #logo img{
+  width: 115px;
+}
+
+.snotify {
+  z-index: 100000 !important;
+  margin-bottom: 50px;
+}

@@ -1,0 +1,44 @@
+<ngx-smart-modal #clases_form_modal identifier="clases_form_modal" [closable]="false" [escapable]="false"
+  [dismissable]="false" customClass="modal-smart-50 modal-smart-top-10">
+  <form #clasesForm="ngForm">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cerrar()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h4 class="modal-title">
+        <span *ngIf="c_accion==1">Nueva Clase</span>
+        <span *ngIf="c_accion==2">Editar Clase</span>
+      </h4>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group form-group-sm">
+            <label for="codigo">Código Clase <span class="required">*</span></label>
+            <input type="text" class="form-control input-sm" name="codigo" id="codigo" required
+              [(ngModel)]="formData.codigo" #codigo="ngModel" placeholder="Código Clase">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group form-group-sm">
+            <label for="nombre">Nombre Clase <span class="required">*</span></label>
+            <input type="text" class="form-control input-sm" name="nombre" id="nombre" required
+              [(ngModel)]="formData.nombre" #nombre="ngModel" placeholder="Nombre Clase">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="cerrar(); clasesForm.reset()">Cerrar
+      </button>
+      <button type="button" class="btn btn-success" *ngIf="c_accion==1" [disabled]="!clasesForm.valid"
+        (click)="guardar(clasesForm,clasesForm);">
+        <i class="fa fa-save"></i> Agregar Clase
+      </button>
+      <button type="button" class="btn btn-primary" *ngIf="c_accion==2" [disabled]="!clasesForm.valid"
+        (click)="editar(clasesForm,clasesForm);">
+        <i class="fa fa-save"></i> Actalizar Clase
+      </button>
+    </div>
+  </form>
+</ngx-smart-modal>

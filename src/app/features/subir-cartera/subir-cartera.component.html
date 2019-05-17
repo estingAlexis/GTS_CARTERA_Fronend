@@ -1,0 +1,33 @@
+<div id="content">
+    <div class="container">
+        <article class="col-sm-12">
+            <sa-widgets-grid>
+                <div sa-widget color="blueDark">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-file-upload"></i> </span>
+                        <h2>SubirCartera</h2>
+                    </header>
+                    <div>
+                        <div class="widget-body">
+                                <h3 class="first"> <i style="font-size: 30px" class="fa fa-file-csv text-success"></i> Seleccionar Archivo </h3>
+                                <p-fileUpload 
+                                customUpload="true"
+                                chooseLabel="Selecionar" 
+                                uploadLabel="Subir" 
+                                cancelLabel="Cancelar" name="demo[]"  (uploadHandler)="myUploader($event)" (onUpload)="onUpload($event)"
+                                         accept=".csv" maxFileSize="1000000">
+                                    <ng-template pTemplate="content">
+                                        <ul *ngIf="uploadedFiles.length">
+                                            <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+                                        </ul>
+                                    </ng-template>
+                                </p-fileUpload>
+                                
+                        </div>
+                    </div>
+                </div>
+            </sa-widgets-grid>
+        </article>
+    </div>
+</div>
+

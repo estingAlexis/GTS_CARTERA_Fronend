@@ -1,0 +1,42 @@
+<div id="content">
+    <div class="container">
+        <article class="col-sm-12">
+
+            <sa-widgets-grid>
+                <div sa-widget color="blueDark">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+
+                        <h2>Listado de Programas</h2>
+
+                        <div class="widget-toolbar">
+                            <a  class="btn btn-success"><i class="fa fa-file-excel-o"></i> </a>
+                        </div>
+                        <div class="widget-toolbar">
+                            <a  class="btn btn-danger"><i class="fa fa-file-pdf-o"></i> </a>
+                        </div>
+                        <div class="widget-toolbar">
+                            <select class="btn btn-default" name="stateFilter" id="stateFilter"
+                                >
+                                <option value="1">Activos</option>
+                                <option value="0">Inactivos</option>
+                                <option value="">Todos</option>
+                            </select>
+                        </div>
+                    </header>
+                    <div>
+                        <div class="widget-body">
+                            <sa-programas-table></sa-programas-table>
+                        </div>
+                    </div>
+                </div>
+            </sa-widgets-grid>
+        </article>
+    </div>
+</div>
+
+
+<!--
+    <input type="text" class="form-control form-control-sm" (keydown)="onKeydown($event)">
+-->
+

@@ -1,0 +1,77 @@
+<ngx-smart-modal #cobrador_form_modal identifier="cobrador_form_modal" [closable]="false" [escapable]="false"
+  [dismissable]="false" customClass="modal-smart-40 modal-smart-top-15">
+
+  <form #cobradorForm="ngForm">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cerrar()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h4 class="modal-title">
+        <span *ngIf="c_accion==1">Nuevo Cobrador</span>
+        <span *ngIf="c_accion==2">Editar Cobrador</span>
+      </h4>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group form-group-sm">
+            <label for="codigo">Código <span class="required">*</span></label>
+            <input type="text" class="form-control input-sm" name="codigo" id="codigo" required
+              [(ngModel)]="formData.codigo" #codigo="ngModel" placeholder="Código del Cobrador">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group form-group-sm">
+            <label for="identificacion">Identificacion <span class="required">*</span></label>
+            <input type="text" class="form-control input-sm" name="identificacion" id="identificacion" required
+              [(ngModel)]="formData.identificacion" #identificacion="ngModel" placeholder="Identificacion">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group form-group-sm">
+            <label for="nombre">Nombres <span class="required">*</span></label>
+            <input type="text" class="form-control input-sm" name="nombre" id="nombre" required
+              [(ngModel)]="formData.nombre" #nombre="ngModel" placeholder="Nombres y Apellidos">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group form-group-sm">
+            <label for="direccion">Direccion <span class="required">*</span></label>
+            <input type="text" class="form-control input-sm" name="direccion" id="direccion" required
+              [(ngModel)]="formData.direccion" #direccion="ngModel" placeholder="Direccion">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group form-group-sm">
+            <label for="telefono">Telefono <span class="required">*</span></label>
+            <input type="text" class="form-control input-sm" name="telefono" id="telefono" required
+              [(ngModel)]="formData.telefono" #telefono="ngModel" placeholder="Telefono">
+          </div>
+
+        </div>
+        <div class="col-md-3">
+          <div class="form-group form-group-sm">
+            <label for="celular">Celular <span class="required">*</span></label>
+            <input type="text" class="form-control input-sm" name="celular" id="celular" required
+              [(ngModel)]="formData.celular" #celular="ngModel" placeholder="Celular">
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal"
+        (click)="cerrar(); cobradorForm.reset()">Cerrar
+      </button>
+      <button type="button" class="btn btn-success" *ngIf="c_accion==1" [disabled]="!cobradorForm.valid"
+        (click)="guardar(cobradorForm,cobradorForm);">
+        <i class="fa fa-save"></i> Guardar almacen
+      </button>
+      <button type="button" class="btn btn-primary" *ngIf="c_accion==2" [disabled]="!cobradorForm.valid"
+        (click)="editar(cobradorForm,cobradorForm);">
+        <i class="fa fa-save"></i> Editar almacen
+      </button>
+    </div>
+  </form>
+
+</ngx-smart-modal>

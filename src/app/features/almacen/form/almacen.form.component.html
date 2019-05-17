@@ -1,0 +1,62 @@
+<ngx-smart-modal #almacen_form_modal identifier="almacen_form_modal" [closable]="false" [escapable]="false"
+  [dismissable]="false" customClass="modal-smart-40 modal-smart-top-25">
+
+  <form #almacenForm="ngForm">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cerrar()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h4 class="modal-title">
+        <span *ngIf="c_accion==1">Nuevo almacen</span>
+        <span *ngIf="c_accion==2">Editar almacen</span>
+      </h4>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <!-- <div class="col-lg-4">
+          <div class="form-group form-group-sm">
+            <label for="id">CODIGO <span class="required">*</span></label>
+            <input type="text" class="form-control input-sm" name="id" id="id" required [(ngModel)]="formData.id" #id="ngModel" placeholder="CODIGO">
+          </div>
+        </div> -->
+        <div class="col-lg-12">
+          <div class="form-group form-group-sm">
+            <label for="nombre">Nombre <span class="required">*</span></label>
+            <input type="text" class="form-control input-sm" name="nombre" id="nombre" required
+              [(ngModel)]="formData.nombre" #nombre="ngModel" placeholder="Nombre del almacen">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group form-group-sm">
+            <label for="direccion">Direccion <span class="required">*</span></label>
+            <input type="text" class="form-control input-sm" name="direccion" id="direccion" required
+              [(ngModel)]="formData.direccion" #direccion="ngModel" placeholder="Direccion del almacen">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group form-group-sm">
+            <label for="responsable">Responsable <span class="required">*</span></label>
+            <input type="text" class="form-control input-sm" name="responsable" id="responsable" required
+              [(ngModel)]="formData.responsable" #responsable="ngModel" placeholder="Nombre del responsable">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal"
+        (click)="cerrar(); almacenForm.reset()">Cerrar
+      </button>
+      <button type="button" class="btn btn-success" *ngIf="c_accion==1" [disabled]="!almacenForm.valid"
+        (click)="guardar(almacenForm,almacenForm);">
+        <i class="fa fa-save"></i> Guardar almacen
+      </button>
+      <button type="button" class="btn btn-primary" *ngIf="c_accion==2" [disabled]="!almacenForm.valid"
+        (click)="editar(almacenForm,almacenForm);">
+        <i class="fa fa-save"></i> Editar almacen
+      </button>
+    </div>
+  </form>
+
+</ngx-smart-modal>

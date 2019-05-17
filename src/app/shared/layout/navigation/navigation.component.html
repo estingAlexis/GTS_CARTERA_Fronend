@@ -1,0 +1,51 @@
+<aside id="left-panel">
+  <nav>
+    <ul saSmartMenu>
+
+      <li >
+        <a routerLink="/admin/Dashboard"  routerLinkActive="link"  title="Home">
+          <i class="fa fa-lg fa-fw fa-line-chart"></i>
+          Dashboards
+        </a>
+      </li>
+      <li >
+        <a routerLink="/admin/home"  routerLinkActive="link"  title="Home">
+          <i class="fa fa-lg fa-fw fa-home"></i>
+          Home
+        </a>
+      </li>
+      <li >
+          <a routerLink="/admin/subir-cartera" routerLinkActive="link" >
+            <i class="fa fa-lg fa-fw fa-file-upload"></i>
+             Subir Cartera
+          </a>
+      </li>
+      <li >
+          <a routerLink="/admin/listar-programas" routerLinkActive="link" >
+            <i class="fa fa-lg fa-fw fa-list-ol"></i>
+             Listar Programas
+          </a>
+      </li>
+      <li>
+        <a title="Gerencia"><i class="fa fa-lg fa-fw fa-user-secret"></i>Gerencia</a>
+        <ul>
+          <li routerLinkActive="active">
+            <a>Maestros</a>
+            <ul>
+              <li><a routerLink="/admin/descuentos-comerciales" title="Almacenes">
+                  Descuentos comerciales
+                </a></li>
+                <li><a routerLink="/admin/departamentos" title="Departamentos">
+                  Departamentos
+                </a></li>
+            </ul>
+
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <sa-minify-menu></sa-minify-menu>
+
+</aside>

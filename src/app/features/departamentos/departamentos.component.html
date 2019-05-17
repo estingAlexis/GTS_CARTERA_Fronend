@@ -1,0 +1,50 @@
+<div id="content">
+
+  <div class="container">
+    <article class="col-sm-12">
+
+      <sa-widgets-grid>
+        <div sa-widget color="blueDark">
+          <header>
+            <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+
+            <h2>Departamentos</h2>
+
+            <div class="widget-toolbar">
+              <a (click)="export_excel()" class="btn btn-success"><i class="fa fa-file-excel-o"></i> </a>
+            </div>
+            <div class="widget-toolbar">
+              <a (click)="export_pdf()" class="btn btn-danger"><i class="fa fa-file-pdf-o"></i> </a>
+            </div>
+            <div class="widget-toolbar">
+              <select class="btn btn-default" name="stateFilter" id="stateFilter" [(ngModel)]="f_state_table">
+                <option value="1">Activos</option>
+                <option value="0">Inactivos</option>
+                <option value="2">Todos</option>
+              </select>
+            </div>
+            <div class="widget-toolbar">
+              <a (click)="newDepartamento()" class="btn btn-primary"><i class="fa fa-plus-square"></i> Nuevo
+                departamento</a>
+            </div>
+          </header>
+          <div>
+            <div class="widget-body">
+            <div class="row">
+              <div class="col-lg-5">
+                <h4>Lista de depratamentos</h4>
+                <app-treeview (form)="event_treeview($event)" [cambio]="c_cambio_table" [state]="f_state_table"> </app-treeview>
+              </div>
+              <div  class="col-lg-7">
+                <app-departamento-form [accion]="c_accion_form" [idIn]="c_id_table" (close)="event_form_departamento($event)"></app-departamento-form>
+              </div>
+                
+            </div>
+            
+            </div>
+          </div>
+        </div>
+      </sa-widgets-grid>
+    </article>
+  </div>
+</div>
