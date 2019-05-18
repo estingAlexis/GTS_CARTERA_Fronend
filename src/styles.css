@@ -6,8 +6,6 @@
 /* @import "~ng-snotify/styles/material"; */
 @import "~ngx-smart-modal/ngx-smart-modal";
 
-
-
 select.btn.btn-default,
 select.btn.btn-default:hover,
 select.btn.btn-default:active,
@@ -256,4 +254,14 @@ table.dataTable thead td {
 .snotify {
   z-index: 100000 !important;
   margin-bottom: 50px;
+}
+
+/*loading */
+
+.centrado-porcentual {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
 }

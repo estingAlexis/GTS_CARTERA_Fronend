@@ -10,22 +10,42 @@
                         <h2>Listado de Programas</h2>
 
                         <div class="widget-toolbar">
-                            <a  class="btn btn-success"><i class="fa fa-file-excel-o"></i> </a>
+                            <a class="btn btn-success"><i class="fa fa-file-excel-o"></i> </a>
                         </div>
                         <div class="widget-toolbar">
-                            <a  class="btn btn-danger"><i class="fa fa-file-pdf-o"></i> </a>
-                        </div>
-                        <div class="widget-toolbar">
-                            <select class="btn btn-default" name="stateFilter" id="stateFilter"
-                                >
-                                <option value="1">Activos</option>
-                                <option value="0">Inactivos</option>
-                                <option value="">Todos</option>
-                            </select>
+                            <a (click)="export_pdf()" class="btn btn-danger"><i class="fa fa-file-pdf-o"></i> </a>
                         </div>
                     </header>
                     <div>
                         <div class="widget-body">
+                            <div class="row">
+
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="cartera">Seleccione el Cartera</label>
+                                        <select disabled class="sl form-control form-control-lg" name="" id="cartera">
+                                            <option>Seleccione una Opcion</option>
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="programa">Seleccione el Programa</label>
+                                        <select [(ngModel)]="sv" (change)="log($event)" class="sl form-control form-control-lg" name="" id="programa">
+                                            <option [value]="5">Seleccione una Opcion</option>
+                                            <option [value]="4">Juridicos</option>
+                                            <option [value]="9">Asociados</option>
+                                            <option [value]="1">Urbanos</option>
+                                            <option [value]="3">Institucionales</option>
+                                            <option>Municipio</option>
+                                            <option>Religioso</option>
+                                            <option>Restantes</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
                             <sa-programas-table></sa-programas-table>
                         </div>
                     </div>
@@ -35,8 +55,6 @@
     </div>
 </div>
 
-
 <!--
     <input type="text" class="form-control form-control-sm" (keydown)="onKeydown($event)">
 -->
-

@@ -51,7 +51,7 @@ import { SublienasComponent } from './sublienas/sublienas.component';
 import { SublineasFormComponent } from './sublienas/sublineas.form/sublineas.form.component';
 import { SubirCarteraComponent } from './subir-cartera/subir-cartera.component';
 import {FileUploadModule} from 'primeng/fileupload';
-import {ToastModule} from 'primeng/toast';
+import { ToastrModule } from 'ngx-toastr';
 import {MultiSelectModule} from 'primeng/multiselect';
 import { CarteraService } from './cartera.service';
 import { ListarProgramasComponent } from './listar-programas/listar-programas.component';
@@ -64,8 +64,8 @@ import { ProgramasTableComponent } from './listar-programas/programas-table/prog
         DataTablesModule,
         TreeViewModule,
         FileUploadModule,
-        ToastModule,
-        MultiSelectModule
+        MultiSelectModule,
+        ToastrModule.forRoot()
     ],
     declarations: [
         HomeComponent,

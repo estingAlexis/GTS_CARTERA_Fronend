@@ -2,23 +2,29 @@ import { Component, OnInit, ɵConsole, Injector } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { CarteraService } from '../cartera.service';
 import { HttpClient } from '@angular/common/http';
+import {SnotifyService, SnotifyPosition, SnotifyToastConfig} from 'ng-snotify';
 
 @Component({
     selector: 'app-subir-cartera',
     templateUrl: './subir-cartera.component.html',
     styleUrls: ['./subir-cartera.component.css']
 })
-export class SubirCarteraComponent {
+export class SubirCarteraComponent implements OnInit{
     uploadUrl: string;
     uploadedFiles: any[] = [];
+    f_state_table: number;
     constructor(
         private titleService: Title,
         private _CarteraService: CarteraService,
         private injector: Injector,
-        private http: HttpClient
+        private http: HttpClient,
+        private snotifyService: SnotifyService
     ) {
         this.titleService.setTitle('GTS CARTERA');
         this.uploadUrl = 'http://localhost:8009/input';
+    }
+
+    ngOnInit(){
     }
 
     myUploader(event): void {
@@ -36,7 +42,12 @@ export class SubirCarteraComponent {
             .post(this.uploadUrl, input)
             .subscribe(res => {
             console.log(res);
-            });
+            this.snotifyService.success('Archivo Subido Con Exito');
+            }, 
+            error=>{
+            this.snotifyService.error('Error al subir El Archivo');
+            }
+            );
     }
 
     public onUpload(event) {
@@ -44,6 +55,13 @@ export class SubirCarteraComponent {
             this.uploadedFiles.push(file);
         }
         console.log(event.files);
+    }
+
+    async export_excel() {
+        const data = await this._CarteraService.reporteLitadoGeneralExcel({ ESTADO: this.f_state_table }).then(res => res);
+        let url = 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,' + data;
+        window.open(url, '_blank');
+
     }
 
 
