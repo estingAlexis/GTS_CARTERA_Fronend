@@ -2,9 +2,10 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angu
 import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
 import { DataSpanidhDatatable } from '@app/constants';
-import * as XLSX from 'xlsx';
-import { saveAs } from 'file-saver';
 import {SnotifyService, SnotifyPosition, SnotifyToastConfig} from 'ng-snotify';
+import { CarteraService } from '@app/features/cartera.service';
+import { defineBase } from '@angular/core/src/render3';
+declare var $:any;
 @Component({
   selector: 'sa-programas-table',
   templateUrl: './programas-table.component.html',
@@ -12,56 +13,49 @@ import {SnotifyService, SnotifyPosition, SnotifyToastConfig} from 'ng-snotify';
 })
 export class ProgramasTableComponent implements OnInit {
   @ViewChild(DataTableDirective)
+  @Output() listar = new EventEmitter();
+  @Input() text: string;
+  @Input() set data(data: any) {
+    this.info = data;
+  }
+  p: number = 1;
+  public info:any;
+  public list: any[] = [];
   dtElement: DataTableDirective;
-  dtOptions: any = {};
+  dtOptions:  DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject();
   stateFilter: number;
   programas: any;
   public sv: any;
-  fileName: string = 'SheetJS.xlsx';
-  data = [
-    {id: 1, nombre: 'maria'},
-    {id: 2, nombre: 'pedro'},
-    {id: 3, nombre: 'juan'}
-  ]
-  /*
-  @Input() set state(state: number) {
-      this.stateFilter = state;
-      this.listar_datos();
-  }
-  @Input() set cambio(cambio: number) {
-      if (cambio > 1) {
-          this.listar_datos();
-      }
-  }
-  @Output() close = new EventEmitter();
-*/
+  cols: any[];
+  public prog: number;
   constructor(
-    private snotifyService: SnotifyService
+    private snotifyService: SnotifyService,
+    private _CarteraService: CarteraService,
   ) {
-    this.dtOptions = {
-      buttons: [
-        'copy',
-        'print',
-        'excel',
-        {
-          text: 'Some button',
-          key: '1',
-          action: function (e, dt, node, config) {
-            alert('This is an accion Button');
-          }
-        }
-      ],
-      pagingType: 'full_numbers',
-      language: DataSpanidhDatatable,
-      dom: 'Bfrtip'
-    };
-    this.sv = '';
+    this.cols = [
+      { field: 'referencia_catastral', header: 'Ref Catastral' },
+      { field: 'nit_cedula', header: 'NIT/Cedula' },
+      { field: 'nombre', header: 'Nombre' },
+      { field: 'direccion', header: 'Direccion' },
+      { field: 'vigencia', header: 'Vigencia' },
+      { field: 'avaluo', header: 'Avalúo' },
+      { field: 'predial', header: 'Predial' },
+      { field: 'valor', header: 'Valor' }
+  ];
   }
   ngOnInit() {
-
   }
   ngAfterViewInit(): void {
     this.dtTrigger.next();
   }
+  public addToList(data: {}){
+    this.list.push(data);
+    console.log(this.list);
+  }
+  public listar_Programas(){
+    console.log(this.prog);
+    this.listar.emit(this.prog);
+  }
+  public selectAll(){}
 }

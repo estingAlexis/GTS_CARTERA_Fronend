@@ -57,12 +57,4 @@ export class SubirCarteraComponent implements OnInit{
         console.log(event.files);
     }
 
-    async export_excel() {
-        const data = await this._CarteraService.reporteLitadoGeneralExcel({ ESTADO: this.f_state_table }).then(res => res);
-        let url = 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,' + data;
-        window.open(url, '_blank');
-
-    }
-
-
 }

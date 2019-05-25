@@ -6,20 +6,15 @@
 <sa-navigation></sa-navigation>
 
 <div id="main" role="main" [@routerTransition]="getState(o)">
-
-  <!-- <sa-layout-switcher></sa-layout-switcher> -->
-
-  <sa-ribbon></sa-ribbon>
-
-  <router-outlet #o="outlet"></router-outlet>
+  <!--
+    <sa-ribbon></sa-ribbon>
+  -->
+  <div style="padding: 5px">
+      <router-outlet   #o="outlet"></router-outlet>
+  </div>
 </div>
-
-
-
 <!--
   <sa-footer></sa-footer>
-  
-
 -->
 <sa-shortcut></sa-shortcut>
 

@@ -22,10 +22,11 @@ export class LayoutSwitcherComponent implements OnInit, OnDestroy {
       this.store = store;
     });
     this.store = this.layoutService.store;
+    this.onMenuOnTop();
   }
 
   ngOnDestroy(){
-    this.sub.unsubscribe()
+    this.sub.unsubscribe();
   }
 
 

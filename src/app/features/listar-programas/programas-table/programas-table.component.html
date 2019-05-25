@@ -1,120 +1,67 @@
-<div class="table-responsive">
+ 
+<!DOCTYPE html>
+<html lang="en">
 
-    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered">
-      <thead>
-        <tr class="text-danger">
-          <th>Ref Catastral</th>
-          <th>NIT/Cedula</th>
-          <th>Nombre</th>
-          <th>Direccion</th>
-          <th>Vigencia</th>
-          <th>Avalúo</th>
-          <th>Predial</th>
-          <th>Valor</th>
-          <th width=120></th>
-        </tr>
-      </thead>
-      <tbody>
-        
+<head>
+    <meta charset="UTF-8">
+    <script src="../../../../assets/js/modernizr.min.js" type="text/javascript"></script>
+
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../../../../assets/css/normalize.min.css">
+    <script src="../../../../assets/js/prefixfree.min.js"></script>
+
+</head>
+ 
+<body>
+    <table class="responsive-table">
+        <thead>
             <tr>
-                <td>0021</td>
-                <td>45781236</td>
-                <td>Juan</td>
-                <td>calle 45 # 45 - 89</td>
-                <td>5</td>
-                <td>{{1000 | currency}}</td>
-                <td>{{451236 | currency}}</td>
-                <td>{{5000 | currency}}</td>
-                <td>
-                    <div class="widget-toolbar">
-                        <a  class="btn btn-danger"><i class="fa fa-window-close"></i> </a>
-                    </div>
-                    <div class="widget-toolbar">
-                        <a  class="btn btn-info"><i class="fa fa-pen"></i> </a>
-                    </div>
-      
-                </td>
-              </tr>
-              <tr>
-                  <td>0021</td>
-                  <td>45781236</td>
-                  <td>Maria</td>
-                  <td>calle 45 # 45 - 89</td>
-                  <td>5</td>
-                  <td>{{1000 | currency}}</td>
-                  <td>{{451236 | currency}}</td>
-                  <td>{{5000 | currency}}</td>
-                  <td>
-                      <div class="widget-toolbar">
-                          <a  class="btn btn-danger"><i class="fa fa-window-close"></i> </a>
-                      </div>
-                      <div class="widget-toolbar">
-                          <a  class="btn btn-info"><i class="fa fa-pen"></i> </a>
-                      </div>
-        
-                  </td>
-              </tr>
-              <tr>
-                  <td>0021</td>
-                  <td>45781236</td>
-                  <td>Patricia</td>
-                  <td>calle 45 # 45 - 89</td>
-                  <td>5</td>
-                  <td>{{1000 | currency}}</td>
-                  <td>{{451236 | currency}}</td>
-                  <td>{{5000 | currency}}</td>
-                  <td>
-                      <div class="widget-toolbar">
-                          <a  class="btn btn-danger"><i class="fa fa-window-close"></i> </a>
-                      </div>
-                      <div class="widget-toolbar">
-                          <a  class="btn btn-info"><i class="fa fa-pen"></i> </a>
-                      </div>
-        
-                  </td>
-              </tr>
-              <tr>
-                  <td>0021</td>
-                  <td>45781236</td>
-                  <td>Juan</td>
-                  <td>calle 45 # 45 - 89</td>
-                  <td>5</td>
-                  <td>{{1000 | currency}}</td>
-                  <td>{{451236 | currency}}</td>
-                  <td>{{5000 | currency}}</td>
-                  <td>
-                      <div class="widget-toolbar">
-                          <a  class="btn btn-danger"><i class="fa fa-window-close"></i> </a>
-                      </div>
-                      <div class="widget-toolbar">
-                          <a  class="btn btn-info"><i class="fa fa-pen"></i> </a>
-                      </div>
-        
-                  </td>
-                </tr>
-                <tr>
-                    <td>0021</td>
-                    <td>45781236</td>
-                    <td>Maria</td>
-                    <td>calle 45 # 45 - 89</td>
-                    <td>5</td>
-                    <td>{{1000 | currency}}</td>
-                    <td>{{451236 | currency}}</td>
-                    <td>{{5000 | currency}}</td>
-                    <td>
-                        <div class="widget-toolbar">
-                            <a  class="btn btn-danger"><i class="fa fa-window-close"></i> </a>
-                        </div>
-                        <div class="widget-toolbar">
-                            <a  class="btn btn-info"><i class="fa fa-pen"></i> </a>
-                        </div>
-          
-                    </td>
-                </tr>
-
-        <tr *ngFor="let item of programas">
-        </tr>
-      </tbody>
+                <th scope="col">Nombre</th>
+                <th scope="col">Ref Catastral</th>
+                <th scope="col">NIT/Cedula</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Vigencia</th>
+                <th scope="col">Avalúo</th>
+                <th scope="col">Predial</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Add</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="info != null">
+                <td data-title="Nombre"><input type="text" class="form-control form-control-sm input-sm"></td>
+                <td data-title="Ref Catastral"><input type="text" class="form-control form-control-sm input-sm"></td>
+                <td data-title="NIT/Cedula"><input type="text" class="form-control form-control-sm input-sm"></td>
+                <td data-title="Direccion"><input type="text" class="form-control form-control-sm input-sm"></td>
+                <td data-title="Vigencia"><input type="text" class="form-control form-control-sm input-sm"></td>
+                <td data-title="Avalúo"><input type="text" class="form-control form-control-sm input-sm"></td>
+                <td data-title="Predial"><input type="text" class="form-control form-control-sm input-sm"></td>
+                <td data-title="Valor"><input type="text" class="form-control form-control-sm input-sm"></td>
+                <td data-title="Add"><button class="btn btn-sm btn-success" (clcik)="selectAll()"><i class="fa fa-plus"></i></button></td>
+            </tr>
+            <tr  *ngFor="let item of info | filter: {referencia_catastral: text, nit_cedula: text, nombre: text, direccion: text, vigencia: text, avaluo: text, predial: text, valor:text  }" (click)="addToList(item)">
+                <th scope="row">{{item.nombre}}</th>
+                <td data-title="Ref Catastral">{{item.referencia_catastral}}</td>
+                <td data-title="NIT/Cedula">{{item.nit_cedula}}</td>
+                <td data-title="Direccion">{{item.direccion}}</td>
+                <td data-title="Vigencia">{{item.vigencia}}</td>
+                <td data-title="Avalúo">{{item.avaluo}}</td>
+                <td data-title="Predial">{{item.predial}}</td>
+                <td data-title="Valor">{{item.valor}}</td>
+                <td data-title="Add"><input type="checkbox" (change)="addToList(item)"></td>
+            </tr>
+        </tbody>
+        <tfoot>
+          <!--
+          <tr>
+            code: | paginate: { itemsPerPage: 10, currentPage: p }  <pagination-controls [previousLabel]="'Anterior'" [nextLabel]="'Siguiente'" [responsive]="true" autoHide="true" (pageChange)="p = $event"></pagination-controls>  
+          </tr>    
+          -->     
+        </tfoot>
     </table>
-  
-  </div>
+
+    <script src='../../../../assets/js/jquery.min.js'></script>
+
+</body>
+
+</html>

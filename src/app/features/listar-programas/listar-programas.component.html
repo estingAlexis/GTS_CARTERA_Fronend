@@ -1,60 +1,77 @@
-<div id="content">
+<!--
+    <div id="content">
     <div class="container">
         <article class="col-sm-12">
-
-            <sa-widgets-grid>
-                <div sa-widget color="blueDark">
-                    <header>
-                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-
-                        <h2>Listado de Programas</h2>
-
-                        <div class="widget-toolbar">
-                            <a class="btn btn-success"><i class="fa fa-file-excel-o"></i> </a>
-                        </div>
-                        <div class="widget-toolbar">
-                            <a (click)="export_pdf()" class="btn btn-danger"><i class="fa fa-file-pdf-o"></i> </a>
-                        </div>
-                    </header>
-                    <div>
-                        <div class="widget-body">
-                            <div class="row">
-
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="cartera">Seleccione el Cartera</label>
-                                        <select disabled class="sl form-control form-control-lg" name="" id="cartera">
-                                            <option>Seleccione una Opcion</option>
-                                            
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="programa">Seleccione el Programa</label>
-                                        <select [(ngModel)]="sv" (change)="log($event)" class="sl form-control form-control-lg" name="" id="programa">
-                                            <option [value]="5">Seleccione una Opcion</option>
-                                            <option [value]="4">Juridicos</option>
-                                            <option [value]="9">Asociados</option>
-                                            <option [value]="1">Urbanos</option>
-                                            <option [value]="3">Institucionales</option>
-                                            <option>Municipio</option>
-                                            <option>Religioso</option>
-                                            <option>Restantes</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <sa-programas-table></sa-programas-table>
-                        </div>
-                    </div>
-                </div>
-            </sa-widgets-grid>
         </article>
     </div>
 </div>
+-->
 
+<sa-widgets-grid>
+    <div sa-widget color="blueDark">
+        <header>
+            <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+
+            <h2>Listado de Programas</h2>
+
+            <div class="widget-toolbar">
+                <a (click)="exportExcel()" class="btn btn-success"><i class="fa fa-file-excel-o"></i> </a>
+            </div>
+            <div class="widget-toolbar">
+                <a class="btn btn-danger"><i class="fa fa-file-pdf-o"></i> </a>
+            </div>
+        </header>
+        <div>
+            <div class="widget-body">
+
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+
+                        <div class="btn-group" dropdown>
+                            <button id="button-basic" dropdownToggle type="button"
+                                class="btn btn-sm bg-cyan dropdown-toggle" aria-controls="dropdown-basic">
+                                {{cartera}} &nbsp; <span class="caret"></span>
+                            </button>
+                                    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-menu2 card-4" role="menu"
+                                    aria-labelledby="button-basic">
+                                    <li *ngFor="let item of carteras" role="menuitem"><a 
+                                            (click)="selectCartera(item.Tables_in_test)"
+                                            class="dropdown-item text-white"><img style="width: 20px; height: 20px;"
+                                                [src]="imgurl">&nbsp;
+                                            {{item.Tables_in_test}}</a>
+                                    </li>
+                                </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="btn-group" dropdown>
+                            <button [disabled]="cartera == null || cartera == ''" id="button-basic" dropdownToggle
+                                type="button" class="btn btn-sm bg-cyan dropdown-toggle" aria-controls="dropdown-basic">
+                                {{nom_prog}} &nbsp; <span class="caret"></span>
+                            </button>
+                            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu card-4" role="menu"
+                                aria-labelledby="button-basic">
+                                <li *ngFor="let item of programas" role="menuitem"><a
+                                        (click)="setPrograma(item.tipo, item.nombre)"
+                                        class="dropdown-item text-white"><img style="width: 20px; height: 20px;"
+                                                                              [src]="imgurl">&nbsp; {{item.nombre}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <input type="text" class="form-control form-control-sm input-sm" [(ngModel)]="text" placeholder="Buscar por...">
+                    </div>
+
+                </div>
+                <br>
+                <sa-programas-table (listar)="listar_Programas()" [text]="text" [data]="info"></sa-programas-table>
+            </div>
+        </div>
+    </div>
+</sa-widgets-grid>
 <!--
     <input type="text" class="form-control form-control-sm" (keydown)="onKeydown($event)">
 -->
